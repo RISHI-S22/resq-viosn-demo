@@ -49,3 +49,4 @@ if st.button("📋 Show All Reports"):
         st.line_chart(df.set_index('timestamp')['data'])
     else:
         st.info("No reports found yet.")
+
