@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-BACKEND_URL = "https://YOUR-RENDER-URL.onrender.com"
+BACKEND_URL = "https://resvi.onrender.com"
 
 st.title("🚨 ResQ Vision Dashboard")
 
