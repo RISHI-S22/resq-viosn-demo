@@ -32,12 +32,20 @@ if st.button("⚠️ Send Alert"):
     r = requests.post(f"{BACKEND_URL}/alert?location={location}")
     st.warning(r.json())
 
-st.subheader("📊 Accident Reports Table")
+st.subheader("📊 Accident Reports Table & Chart")
 if st.button("📋 Show All Reports"):
     r = requests.get(f"{BACKEND_URL}/get-reports")
     reports = r.json().get("reports", [])
     if reports:
         df = pd.DataFrame(reports)
+
+        # Show table
         st.table(df)
+
+        # Convert timestamp to datetime
+        df['timestamp'] = pd.to_datetime(df['timestamp'])
+
+        # Show line chart: number of reports over time
+        st.line_chart(df.set_index('timestamp')['data'])
     else:
         st.info("No reports found yet.")
