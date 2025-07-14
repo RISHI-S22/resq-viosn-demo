@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-BACKEND_URL = "https://resvi.onrender.com"
+BACKEND_URL = "https://YOUR-RENDER-URL.onrender.com"
 
 st.title("🚨 ResQ Vision Dashboard")
 
@@ -23,3 +23,8 @@ location = st.text_input("Location for Alert")
 if st.button("Send Alert"):
     r = requests.post(f"{BACKEND_URL}/alert?location={location}")
     st.write(r.json())
+
+if st.button("Show All Reports"):
+    r = requests.get(f"{BACKEND_URL}/get-reports")
+    reports = r.json().get("reports", [])
+    st.write(reports)
