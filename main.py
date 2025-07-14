@@ -1,4 +1,3 @@
-```python
 from fastapi import FastAPI
 
 app = FastAPI()
@@ -10,12 +9,13 @@ def root():
 @app.get("/detect")
 def detect_accident():
     # TODO: integrate AI model here
-    return {"detected": False, "confidence": 0.0}
+    # For now, return mock detection
+    return {"detected": True, "confidence": 0.82}
 
 @app.post("/alert")
 def send_alert(location: str):
-    # TODO: send alert to police/hospital
-    return {"status": "Alert sent", "location": location}
+    # TODO: actually send alert
+    return {"status": "Alert sent successfully", "location": location}
 
 @app.get("/status")
 def status():
