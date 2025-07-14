@@ -28,9 +28,21 @@ def status():
     return {"service": "online"}
 
 @app.post("/report")
-def report_sensor_data(sensor_id: str, data: float):
-    """
-    Simulate sensor data report (e.g., impact force, vibration etc.)
-    """
-    # In future, process this data to help accident detection
-    return {"status": "Data received", "sensor_id": sensor_id, "value": data}
+def report(sensor_id: str, data: float):
+    report = {"sensor_id": sensor_id, "data": data, "timestamp": datetime.now().isoformat()}
+    
+    # Save to file
+    try:
+        if os.path.exists("data.json"):
+            with open("data.json", "r") as f:
+                all_reports = json.load(f)
+        else:
+            all_reports = []
+
+        all_reports.append(report)
+        with open("data.json", "w") as f:
+            json.dump(all_reports, f, indent=2)
+    except Exception as e:
+        print("Failed to save:", e)
+
+    return {"message": "Data received", "report": report}
