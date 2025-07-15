@@ -1,10 +1,12 @@
-# api/detect.py
+# detect.py
 
 def run_detection(video_path):
     """
-    Dummy detection function. Later this will load a trained AI model 
-    and run inference on the video.
+    Simulated AI detection.
+    Replace this later with your YOLO / ML code.
     """
-    print(f"Running detection on: {video_path}")
-    # Simulate result
-    return {"status": "success", "message": f"Detected accident in {video_path}"}
+    # For now, pretend detection is always successful.
+    return {
+        "status": "success",
+        "message": f"Detected accident in video: {video_path}"
+    }
