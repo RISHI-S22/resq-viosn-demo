@@ -1,76 +1,132 @@
-# resq-viosn-demo
-“AI-powered accident detection system using CCTV and sensor network for smart cities.”
-# ResQ Vision 🚦🤖
 
-AI-powered accident detection system using CCTV video analysis and low-cost sensor network on light poles.  
-Built as a student founder project to make roads safer and smarter.
+# ResQ Vision AI
 
-## 📌 What it does
-- Detects vehicle accidents in real time from existing CCTV feeds using AI
-- Adds low-cost sound & vibration sensors on light poles to cover blind spots
-- Alerts nearby police stations and hospitals through a web dashboard
+An AI-powered system to detect vehicle and pedestrian accidents from CCTV footage and instantly alert nearby police stations and hospitals.  
+Built with deep learning and real-time dashboards for emergency response automation.
 
-## 🛠 Tech stack
-- Computer Vision: OpenCV + TensorFlow/PyTorch
-- Backend: (your choice – Node.js / FastAPI / Java Spring Boot)
-- Hardware: ESP32, vibration/sound sensors, mini camera
-- Cloud: AWS / GCP / Azure (student credits)
+## 🌟 Features
 
-## 📍 Vision
-Create a scalable, affordable accident detection and emergency response system for every city.
-
-> Currently under active development as my final year capstone and startup MVP.
-# 🚨 ResQ Vision
-
-> 🔍 **AI-powered accident detection system for real-time alerts & faster emergency response.**
-
-![Tech](https://img.shields.io/badge/Built%20with-Python%20%7C%20FastAPI%20%7C%20OpenCV-blue)
-![Status](https://img.shields.io/badge/Project-Prototype-brightgreen)
+- Accident detection using YOLOv8 object detection.
+- Real-time video feed and alerts.
+- Dashboard showing:
+  - Accident status
+  - Nearby police stations & hospitals
+  - Latest alerts & saved video clips
+- Automatic data push to backend API.
+- Scalable architecture suitable for cloud deployment.
 
 ---
 
-## 📦 Features
-- Detects road accidents using CCTV & AI
-- Alerts nearby police stations & hospitals automatically
-- Modular backend (Python FastAPI)
-- Future integration: sensors on poles, AI object detection models
+## 🛠️ Project Structure
+
+```plaintext
+resq-viosn-demo/
+├── app.py                 # Main FastAPI / Flask application
+├── dashboard.py           # Dashboard visualization
+├── sensor_sim.py          # Simulated IoT sensor inputs
+├── resq-vision-ai/        # AI model, dataset and training scripts
+│   ├── train.py           # Model training script
+│   ├── data.yaml          # Dataset config
+│   └── ...
+├── images/                # Collected and labeled images
+├── requirements.txt       # Python dependencies
+├── README.md              # Project documentation
+├── .gitignore             # Files ignored by Git
+└── LICENSE                # All rights reserved license
+````
 
 ---
 
-## 🛠 Tech Stack
-- **Backend:** Python, FastAPI
-- **AI Models:** OpenCV, TensorFlow/PyTorch (planned)
-- **Deployment:** Uvicorn (local now, cloud later)
+## ✅ How to set up & run
 
----
+### 1️⃣ Clone the repository
 
-## 📊 Architecture
-
-> ![Architecture Diagram](architecture-dark.png)
-
----
-
-## 🚀 How to run locally
 ```bash
-# Clone repo
 git clone https://github.com/RISHI-S22/resq-viosn-demo.git
 cd resq-viosn-demo
+```
 
-# Create virtual environment & activate
+### 2️⃣ Create virtual environment & install dependencies
+
+```bash
 python -m venv venv
-.\venv\Scripts\activate    # Windows
+source venv/Scripts/activate    # Windows
+# OR
+source venv/bin/activate       # Linux/Mac
 
-# Install dependencies
 pip install -r requirements.txt
+```
 
-# Run server
-uvicorn main:app --reload
-## 🌐 Live demo
-[https://resq-vision-backend.onrender.com](https://resq-vision-backend.onrender.com)
+### 3️⃣ Train the AI model (if needed)
 
+Make sure your dataset paths in `data.yaml` are correct.
 
+```bash
+cd resq-vision-ai
+python train.py
+```
 
-## 📞 Contact
+### 4️⃣ Run the app
+
+```bash
+python app.py
+```
+
+Open your browser and navigate to `http://127.0.0.1:8000` (or your configured port).
+
+---
+
+## 🔄 Typical workflow to update & push
+
+```bash
+# Stage changes
+git add .
+
+# Commit changes
+git commit -m "Describe your changes here"
+
+# Push to GitHub
+git push origin main
+```
+
+---
+
+## ⚡ How to restart everything
+
+If your PC restarts or you close terminal:
+
+1. Open terminal in project folder
+2. Activate virtual environment:
+
+```bash
+source venv/Scripts/activate    # Windows
+# OR
+source venv/bin/activate       # Linux/Mac
+```
+
+3. Run your app again:
+
+```bash
+python app.py
+```
+
+---
+
+## 📜 License
+
+All rights reserved © 2025 **Rishik Srivathsava**.
+You may view the code, but copying, modifying, or distributing it is **not allowed** without permission.
+
+---
+
+## ✏️ Author
+
+Built with ❤️ by **Rishik Srivathsava**.
+
+````
+> *Built with ❤️ for ResQ Vision*
+
+ ## 📞 Contact
 [LinkedIn]: www.linkedin.com/in/
 rishik-srivathsava-059783310
  | Email: thalluririshi24@gmail.com
