@@ -1,1 +1,22 @@
-venv/
+__pycache__/
+*.pyc
+
+# Videos and model files
+/videos/*
+*.pt
+
+# Other
+runs/
+.env
+
+__pycache__/
+*.pyc
+
+# Videos and model files
+/videos/*
+!/videos/sample.mp4
+*.pt
+
+# Other
+runs/
+.env
