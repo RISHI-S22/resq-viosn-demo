@@ -25,16 +25,17 @@ def detect_accident():
 def upload_video():
     if 'file' not in request.files:
         return jsonify({'status': 'error', 'message': 'No file part in request'}), 400
-    
+
     file = request.files['file']
     if file.filename == '':
         return jsonify({'status': 'error', 'message': 'No selected file'}), 400
-    
+
     # Save file
     save_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
     file.save(save_path)
-    
+
     return jsonify({'status': 'success', 'message': f'File uploaded as {file.filename}'})
+
 if __name__ == "__main__":
     app.run(debug=False)
 

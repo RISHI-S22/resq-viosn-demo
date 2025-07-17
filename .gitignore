@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+*.pyc
+*.pyd
+*.dll
+*.so
+*.dylib
+*.lib
+runs/
